@@ -22,7 +22,6 @@ class Toptedtalks::Talk
     section = doc.css(".playlist-talks__talk__content")
     description = doc.css("div.playlist-talks__description.m5").text
     section.each do |talk|
-      binding.pry
       talks << {name: talk.css(".playlist-talks__meta").css(".playlist-talks__title").text.strip, url: "https://www.ted.com" + talk.css(".playlist-talks__meta").css(".playlist-talks__title").css("a").attribute("href").value, speaker: talk.css(".playlist-talks__meta").css(".playlist-talks__speaker").text.strip, description: talk.css(".playlist-talks__info").css("div.playlist-talks__description.m5").text.strip }
     end
     # url: talk.css(".playlist-talks__meta").css(".playlist-talks__title").css("a").attribute("href").value
