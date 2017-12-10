@@ -8,25 +8,22 @@ class Toptedtalks::CLI
   end
 
   def list_talks
-    @talks = Toptedtalks::Talk.all
+    @talk = Toptedtalks::Talk.all
+    @talk.each.with_index(1) do |talk, i|
+      puts "#{i}. #{talks}"
   end
 
   def menu
     input = nil
     while input != "exit"
-      puts "Which talks would you like to see more info on? 1-5, 5-10, 10-15 or 15-25? To exit type exit"
+      puts "Which talks would you like to see more info on? Type 1-25 to choose, type list to see choices. To exit type exit"
       input = gets.strip.downcase
-      case input
-      when "1-5"
-        puts "--talks 1-5--"
-      when "5-10"
-        puts "--talks 5-10--"
-      when "10-15"
-        puts "--talks 10-15--"
-      when "15-25"
-        puts "--talks 15-25--"
+      if input.to_i > 0
+        puts @talk[input.to_i-1]
+      elsif input == "list"
+        puts list_talks
       else
-        puts "Please select a number between 1-25 for talk details or type exit if you're done."
+        puts "Please select a number between 1-25 for talk details, type list to see choices or type exit if you're done."
       end
     end
 
