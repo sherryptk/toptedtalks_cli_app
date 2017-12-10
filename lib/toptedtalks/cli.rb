@@ -10,13 +10,14 @@ class Toptedtalks::CLI
   def list_talks
     @talk = Toptedtalks::Talk.all
     @talk.each.with_index(1) do |talk, i|
-      puts "#{i}. #{talks}"
+      puts "#{i}. #{talk.name} - #{talk.speaker}"
+    end
   end
 
   def menu
     input = nil
     while input != "exit"
-      puts "Which talks would you like to see more info on? Type 1-25 to choose, type list to see choices. To exit type exit"
+      puts "Which talks would you like to see more info on? Type 1-25 to choose, type list to see choices again. To exit type exit"
       input = gets.strip.downcase
       if input.to_i > 0
         puts @talk[input.to_i-1]
