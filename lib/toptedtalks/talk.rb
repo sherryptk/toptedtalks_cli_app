@@ -1,5 +1,4 @@
 class Toptedtalks::Talk
-
   attr_accessor :name, :speaker, :views, :description, :url
 
   @@all
@@ -18,8 +17,16 @@ class Toptedtalks::Talk
 
   def self.scrape_talks
     doc = Nokogiri::HTML(open("https://www.ted.com/playlists/171/the_most_popular_talks_of_all"))
-    binding.pry
+
     talks = []
+    section = doc.css(".playlist-talks__meta")
+    name = doc.css(".playlist-talks__meta")
+    section.each do |talk|
+      talks << {speaker: talk.css(".playlist-talks__speaker").text}
+    end
+    # speaker = doc.css(".playlist-talks__meta").css(".playlist-talks__speaker").text
+
+    binding.pry
 
 
     talks
