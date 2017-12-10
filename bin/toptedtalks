@@ -1,12 +1,8 @@
 #!/usr/bin/env ruby
-require "bundler"
 require "./lib/toptedtalks"
 require "open-uri"
-
-# require "bundler/setup"
-# require "pry"
-
-
-
+require "nokogiri"
+# require "./lib/toptedtalks"
+require "pry"
 
 Toptedtalks::CLI.new.call
