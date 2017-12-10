@@ -10,7 +10,7 @@ class Toptedtalks::CLI
   def list_talks
     @talk = Toptedtalks::Talk.all
     @talk.each.with_index(1) do |talk, i|
-      puts "#{i}. #{talk.name} - #{talk.speaker}"
+      puts "#{i}. #{talk[:name]} - #{talk[:speaker]}"
     end
   end
 

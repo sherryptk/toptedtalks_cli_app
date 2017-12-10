@@ -19,20 +19,18 @@ class Toptedtalks::Talk
     doc = Nokogiri::HTML(open("https://www.ted.com/playlists/171/the_most_popular_talks_of_all"))
 
     talks = []
-    section = doc.css(".playlist-talks__meta")
-    #talk-66 > div > div > div.playlist-talks__info > div.playlist-talks__description.m5
+    section = doc.css(".playlist-talks__talk__content")
     description = doc.css("div.playlist-talks__description.m5").text
     section.each do |talk|
-      talks << {name: talk.css(".playlist-talks__title").text, speaker: talk.css(".playlist-talks__speaker").text}
+      binding.pry
+      talks << {name: talk.css(".playlist-talks__meta").css(".playlist-talks__title").text.strip, url: "https://www.ted.com" + talk.css(".playlist-talks__meta").css(".playlist-talks__title").css("a").attribute("href").value, speaker: talk.css(".playlist-talks__meta").css(".playlist-talks__speaker").text.strip, description: talk.css(".playlist-talks__info").css("div.playlist-talks__description.m5").text.strip }
     end
+    # url: talk.css(".playlist-talks__meta").css(".playlist-talks__title").css("a").attribute("href").value
 
-    talks << {description: doc.css("div.playlist-talks__description.m5").text}
-
+    # doc.css(".playlist-talks__talk__content").css(".playlist-talks__meta").css(".playlist-talks__title").text.strip
+    # talks << {description: doc.css("div.playlist-talks__description.m5").text}
     # name = section.css(".playlist-talks__title").text
     # speaker = doc.css(".playlist-talks__meta").css(".playlist-talks__speaker").text
-
-    binding.pry
-
 
     talks
   end
