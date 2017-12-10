@@ -17,13 +17,14 @@ class Toptedtalks::CLI
   def menu
     input = nil
     while input != "exit"
-      puts "Which talk would you like to see more info on? Type 1-25 to choose one, type list to see choices again. To exit type exit"
+      puts ""
+      puts "Which talk would you like to see more info on? Type 1-25 to choose a talk, type list to see choices again. Type exit to leave."
       input = gets.strip.downcase
       if input.to_i > 0
         puts ""
         puts "Ted Talk Rank: #{input.to_i}"
         puts ""
-        puts "Title: #{@talk[input.to_i-1][:name]}"
+        puts "Title: \"#{@talk[input.to_i-1][:name]}\""
         puts "Speaker: #{@talk[input.to_i-1][:speaker]}"
         puts ""
         puts "Description: #{@talk[input.to_i-1][:description]}"
