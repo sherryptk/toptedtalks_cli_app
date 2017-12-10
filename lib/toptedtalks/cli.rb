@@ -37,7 +37,8 @@ class Toptedtalks::CLI
         puts "Would you like to discover more about this speaker? Type yes or no."
         speaker_info = gets.strip.downcase
           if speaker_info == "yes"
-            puts "info about speaker"
+            @speaker = Toptedtalks::Speaker.scrape_speaker(@talk[input.to_i-1][:profile_url])
+            puts @speaker
           end
       elsif input == "list"
         puts list_talks
