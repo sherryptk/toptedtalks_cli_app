@@ -19,7 +19,7 @@ class Toptedtalks::CLI
   end
 
   def list_talks
-    Toptedtalks::Talk.all.each.with_index(1) do |talk, i|
+    @talks.each.with_index(1) do |talk, i|
       puts "#{i}. #{talk.name} by #{talk.speaker}"
     end
   end
@@ -42,7 +42,7 @@ class Toptedtalks::CLI
         puts ""
         puts "Watch Video: #{@talks[input.to_i-1].url}"
       elsif input == "list"
-        puts list_talks
+        list_talks
       elsif input != "exit"
         puts ""
         puts "Whoops, invalid entry. Please try entering your selection again."
