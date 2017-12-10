@@ -12,8 +12,6 @@ Type the text below and then follow the on screen prompts
 
     $ toptedtalks
 
-TODO: Write usage instructions here
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -26,4 +24,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'sherr
 
 ## License
 
-The gem is available as open source under the terms of the MIT License.
+The gem is available as open source under the terms of the MIT License http://opensource.org/licenses/MIT.
