@@ -5,7 +5,6 @@ class Toptedtalks::Talk
 
   def self.all
     # @@all
-    puts "--list of talks--"
     talk = self.new
     talk.name = "Killing Creativity"
     talk.speaker = "Ken Robinson"

@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/toptedtalks'
+require "bundler/setup"
+require "./lib/toptedtalks"
+
 
 Toptedtalks::CLI.new.call
