@@ -17,7 +17,6 @@ class Toptedtalks::CLI
   def menu
     input = nil
     while input != "exit"
-      puts ""
       puts "Which talk would you like to see more info on? Type 1-25 to choose a talk, type list to see choices again. Type exit to leave."
       input = gets.strip.downcase
       if input.to_i > 0
@@ -31,7 +30,6 @@ class Toptedtalks::CLI
         puts ""
         puts "Watch Video: #{@talk[input.to_i-1][:url]}"
         puts ""
-        # binding.pry
       elsif input == "list"
         puts list_talks
       else
