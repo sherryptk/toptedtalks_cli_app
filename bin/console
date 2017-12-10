@@ -1,8 +1,5 @@
 #!/usr/bin/env ruby
-# require "open-uri"
-# require "nokogiri"
-# require "./lib/toptedtalks"
-# require "pry"
+
 
 
 require "irb"
