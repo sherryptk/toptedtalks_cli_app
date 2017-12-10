@@ -1,4 +1,5 @@
 class Toptedtalks::Talk
+  attr_accessor :name, :speaker, :views, :description, :url
 
   @@all
 
@@ -11,6 +12,8 @@ class Toptedtalks::Talk
     talk.views = "4 million"
     talk.description = "Ken talks about the structure of school and whether it's killing our children's creativity."
     talk.url = "https://www.ted.com/talks/ken_robinson_says_schools_kill_creativity"
+
+    [talk]
   end
 
 end
