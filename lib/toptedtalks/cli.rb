@@ -1,7 +1,9 @@
 class Toptedtalks::CLI
 
   def call
+    puts ""
     puts "The 25 Most Popular Ted Talks of All Time"
+    puts ""
     list_talks
     menu
     goodbye
@@ -10,14 +12,16 @@ class Toptedtalks::CLI
   def list_talks
     @talk = Toptedtalks::Talk.all
     @talk.each.with_index(1) do |talk, i|
-      puts "#{i}. #{talk[:name]} - #{talk[:speaker]}"
+      puts "#{i}. #{talk[:name]} by #{talk[:speaker]}"
     end
   end
 
   def menu
     input = nil
+    speaker_info = nil
     while input != "exit"
-      puts "Which talk would you like to see more info on? Type 1-25 to choose a talk, type list to see choices again. Type exit to leave."
+      puts ""
+      puts "Which talk would you like to see more info on? Type 1-25 to choose a talk, type list to see choices again, type exit to leave."
       input = gets.strip.downcase
       if input.to_i > 0
         puts ""
@@ -30,17 +34,22 @@ class Toptedtalks::CLI
         puts ""
         puts "Watch Video: #{@talk[input.to_i-1][:url]}"
         puts ""
+        puts "Would you like to discover more about this speaker? Type yes or no."
+        speaker_info = gets.strip.downcase
+          if speaker_info == "yes"
+            puts "info about speaker"
+          end
       elsif input == "list"
         puts list_talks
       else
-        puts "Please select a number between 1-25 for talk details, type list to see choices or type exit if you're done."
+        puts ""
+        puts "Whoops, invalid entry. Please try entering your selection again."
       end
     end
-
   end
 
   def goodbye
-    puts "Come back for more ideas worth spreading."
+    puts "Come back for more ideas worth spreading!"
   end
 
 end
